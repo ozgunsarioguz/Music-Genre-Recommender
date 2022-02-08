@@ -28,14 +28,14 @@ class TreeNode:
     self.choices.append(node)
 
   def traverse(self):
-    story_node = self
-    while len(story_node.choices) > 0:
-      print(story_node.music[1])
+    main_node = self
+    while len(main_node.choices) > 0:
+      print(main_node.music[1])
       user_choice = input("Select and write 1 or 2 ... ")
       if user_choice == "1" or user_choice == "2":
         user_choice = int(user_choice)
-        chosen_child = story_node.choices[user_choice - 1]
-        story_node = chosen_child
+        chosen_child = main_node.choices[user_choice - 1]
+        main_node = chosen_child
       else:
         print("Please write 1 or 2 your input was not clear...")
     print("You may listen to: \n ")
@@ -45,7 +45,7 @@ class TreeNode:
 
 
 
-story_root = TreeNode(music)
+search_root = TreeNode(music)
 
 choice_slow = TreeNode(slow)
 
@@ -59,14 +59,14 @@ choice_upbeat_old = TreeNode(upbeat_old)
 
 choice_upbeat_act = TreeNode(upbeat_modern)
 
-story_root.add_child(choice_slow)
-story_root.add_child(choice_upbeat)
+search_root.add_child(choice_slow)
+search_root.add_child(choice_upbeat)
 choice_slow.add_child(choice_slow_old)
 choice_slow.add_child(choice_slow_act)
 choice_upbeat.add_child(choice_upbeat_old)
 choice_upbeat.add_child(choice_upbeat_act)
 
 
-story_root.traverse()
+search_root.traverse()
 
 
